@@ -23,6 +23,12 @@ if (Meteor.isClient) {
     }
   });
 
+  Template.leaderboard.events({
+    'click input.add': function () {
+      Players.insert({name: "Person " + Math.floor(Random.fraction()*10), score: Math.floor(Random.fraction()*10)*5});
+    }
+  });
+
   Template.player.events({
     'click': function () {
       Session.set("selected_player", this._id);
