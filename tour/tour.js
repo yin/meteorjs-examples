@@ -1,19 +1,8 @@
+Colors = new Meteor.Collection("colors");
+
 if (Meteor.isClient) {
-  Template.hello.greeting = function () {
-    return "Welcome to tour.";
+  Template.color_list.colors = function() {
+    return Colors.find({}, {sort: {likes: -1, name: 1}});
   };
-
-  Template.hello.events({
-    'click input' : function () {
-      // template data, if any, is available in 'this'
-      if (typeof console !== 'undefined')
-        console.log("You pressed the button");
-    }
-  });
 }
 
-if (Meteor.isServer) {
-  Meteor.startup(function () {
-    // code to run on server at startup
-  });
-}

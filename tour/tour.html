@@ -3,9 +3,24 @@
 </head>
 
 <body>
-  {{> hello}}
+  <h1>My favorite colors</h1>
+  
+  {{> color_list}}
 </body>
 
-<template name="hello">
-  <h1>Hello Meteor!</h1>
+<template name="color_list">
+  {{#each colors}}
+    <ul>
+      {{> color_info}}
+    </ul>
+  {{else}}
+    No colors yet.
+  {{/each}}
 </template>
+
+<template name="color_info">
+  <li>
+    {{> color_info}}
+  </li>
+</template>
+
